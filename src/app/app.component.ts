@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Shop';
+  selected: string = 'recipe';
+
+  updateSelection(selected: string) {
+    this.selected = selected;
+  }
 }

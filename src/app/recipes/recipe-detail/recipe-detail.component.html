@@ -1,0 +1,44 @@
+<div *ngIf="selectedRecipe != undefined">
+  <div class="row">
+    <div class="col-xs-12">
+      <img style="max-height: 200px;" [src]="selectedRecipe.imagePath" alt="" class="img-responsive">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{selectedRecipe.name}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{{selectedRecipe.description}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Manage Recipe
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <li><a class="dropdown-item" href="#" (click)="addToShoppingList()">To Shopping List</a></li>
+          <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
+          <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="list-group">
+    <div *ngFor="let ingredient of selectedRecipe.ingredients" class="list-group-item">
+      {{ingredient.name}} - {{ingredient.amount}}
+    </div>
+  </div>
+
+</div>
+<div *ngIf="selectedRecipe == undefined">
+  <h2>Recipe Not Selected</h2>
+</div>
